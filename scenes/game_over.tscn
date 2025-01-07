@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=3 uid="uid://du7bgc5gca3re"]
+
+[ext_resource type="Script" path="res://scripts/game_over.gd" id="1_fk63o"]
+[ext_resource type="FontFile" uid="uid://butdfurnsewgi" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_uvrmb"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_fk63o")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -87.0
+offset_right = 134.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_uvrmb")
+theme_override_font_sizes/font_size = 30
+text = "GAME OVER"
+
+[node name="Retry" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -53.0
+offset_top = -44.0
+offset_right = 55.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_uvrmb")
+theme_override_font_sizes/font_size = 20
+text = "RETRY"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = 6.0
+offset_right = 43.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_uvrmb")
+theme_override_font_sizes/font_size = 20
+text = "QUIT"
+
+[connection signal="pressed" from="Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

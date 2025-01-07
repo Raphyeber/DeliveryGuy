@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://u5fc6h16dpye"]
+
+[ext_resource type="Script" path="res://scripts/house.gd" id="1_41ovj"]
+[ext_resource type="Texture2D" uid="uid://dvjrtkuvxp0q5" path="res://assets/sprites/House 4 blue and yellow.png" id="1_cbrnt"]
+[ext_resource type="AudioStream" uid="uid://dde5yfl8nbogr" path="res://assets/sounds/576535__bogenseeberg__delivered.wav" id="3_akyc3"]
+[ext_resource type="AudioStream" uid="uid://vy8iqtmpm6ld" path="res://assets/sounds/wrong-47985.wav" id="4_31i3a"]
+[ext_resource type="FontFile" uid="uid://butdfurnsewgi" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="5_m5obk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_odr50"]
+size = Vector2(104, 102)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxn4h"]
+size = Vector2(118, 116)
+
+[node name="House4" type="Node2D"]
+script = ExtResource("1_41ovj")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-7, -1)
+shape = SubResource("RectangleShape2D_odr50")
+disabled = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-6, -2)
+shape = SubResource("RectangleShape2D_rxn4h")
+
+[node name="Label" type="Label" parent="Area2D"]
+offset_left = -65.0
+offset_top = -81.0
+offset_right = 48.0
+offset_bottom = -58.0
+theme_override_fonts/font = ExtResource("5_m5obk")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(-1, -1)
+scale = Vector2(0.440741, 0.449074)
+texture = ExtResource("1_cbrnt")
+
+[node name="DeliverSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_akyc3")
+
+[node name="WrongSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_31i3a")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -56.0
+offset_top = -113.0
+offset_right = 48.0
+offset_bottom = -90.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_m5obk")
+text = "HOUSE 4"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
