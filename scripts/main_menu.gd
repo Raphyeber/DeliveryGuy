@@ -17,3 +17,12 @@ func _on_exit_button_pressed():
 
 func update_highscore_label():
 	highscore_label.text = "Highscore: " + str(GameManager.highscore)
+
+func _draw() -> void:
+	pass
+
+func _enter_tree() -> void:
+	pass
+	
+func _exit_tree() -> void:
+	pass
